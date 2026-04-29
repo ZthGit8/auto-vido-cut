@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.vide</groupId>
-    <artifactId>auto-vido-cut</artifactId>
+    <artifactId>auto-video-cut</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>auto-vido-cut</name>
@@ -198,6 +198,10 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
