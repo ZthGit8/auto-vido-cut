@@ -1,3 +1,39 @@
 spring:
   application:
     name: auto-vido-cut
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    dashscope:
+      api-key: ${DASHSCOPE_API_KEY:your-api-key}
+      chat:
+        options:
+          model: qwen-plus
+          temperature: 0.7
+  datasource:
+    url: jdbc:mysql://localhost:3306/auto_video_cut?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_uuid
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  paths:
+    uploads: ./uploads
+    outputs: ./outputs
+    tmp: ./tmp
+  ffmpeg:
+    path: ffmpeg
+    timeout-minutes: 20
